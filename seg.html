@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cibersegurança · Comunidade Escolar AE João da Rosa</title>
+  <meta name="description" content="Microsite minimalista para a comunidade escolar do AE João da Rosa. Atualizado semanalmente com boas práticas de segurança digital." />
+  <style>
+    :root{
+      --bg:#0f172a; --panel:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#22d3ee; --accent2:#7dd3fc;
+      --radius:16px; --shadow:0 18px 50px rgba(0,0,0,.25);
+    }
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(160deg,var(--bg),#0b1023);color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    .container{max-width:980px;margin:0 auto;padding:28px 18px}
+    header{padding:36px 0 12px}
+    h1{margin:0 0 6px;font-size:clamp(26px,4vw,40px)}
+    .subtitle{color:var(--muted);margin:0 0 18px}
+    .card{background:rgba(17,24,39,.6);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,.07);
+      border-radius:var(--radius);box-shadow:var(--shadow)}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    @media (max-width: 900px){.grid{grid-template-columns:1fr}}
+    .pad{padding:18px}
+    .pill{display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
+      color:var(--muted);font-size:12px}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+      text-decoration:none;color:var(--text)}
+    .btn:hover{background:rgba(255,255,255,.06)}
+    ul{margin:0 0 0 18px}
+    footer{color:var(--muted);font-size:14px;margin-top:24px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Cibersegurança · Comunidade Escolar</h1>
+      <p class="subtitle">AE João da Rosa — Boas práticas e sensibilização digital.</p>
+      <div class="btns">
+        <a class="btn" href="#dica">Dica da Semana</a>
+        <a class="btn" href="#arquivo">Arquivo</a>
+        <a class="btn" href="#recursos">Recursos úteis</a>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- ==============================
+           🧩 BLOCO PRINCIPAL — DICA DA SEMANA
+           Aqui só se edita o conteúdo dentro da <div class="card pad">.
+           NUNCA APAGAR INSTRUÇÕES.
+           Quando atualizares, copia a dica antiga para o ARQUIVO (secção mais abaixo).
+           =============================== -->
+      <section class="card pad" id="dica">
+        <p class="pill">Atualiza aqui a cada nova dica</p>
+        <h2 style="margin:6px 0 10px">Dica da Semana</h2>
+
+        <div class="card pad" style="background:rgba(255,255,255,.03)">
+          <strong>Phishing — Aprende a desconfiar</strong>
+          <p>Se o e-mail parecer urgente, promete dinheiro ou pede dados pessoais, pára. Lê devagar, confirma o remetente e evita clicar em links desconhecidos.</p>
+          <p class="pill">Publicado: <span id="today"></span></p>
+        </div>
+      </section>
+
+      <!-- COLUNA DIREITA -->
+      <aside class="card pad">
+        <h3>Reportar incidente</h3>
+        <p>Usa o formulário oficial para reportar e-mails suspeitos ou perdas de dispositivo.</p>
+        <p><a class="btn" href="https://forms.gle/SEU_FORMULARIO" target="_blank">Abrir Formulário</a></p>
+        <hr style="border-color:rgba(255,255,255,.08)">
+        <h3>Documentos</h3>
+        <ul>
+          <li><a href="https://drive.google.com/SEU_LINK_PDF" target="_blank">Manual prático de cibersegurança (PDF)</a></li>
+          <li><a href="mailto:SEGURANCA@ESCOLA.PT">Contacto de referência</a></li>
+        </ul>
+      </aside>
+    </main>
+
+    <!-- ARQUIVO DE DICAS ANTIGAS -->
+    <section class="card pad" id="arquivo" style="margin-top:18px">
+      <h2>Arquivo de Dicas</h2>
+      <ul>
+        <li><strong>2025-10-20</strong> — Senhas fortes: usa frases longas e ativa MFA sempre que possível.</li>
+        <li><strong>2025-10-13</strong> — Anexos: se não esperavas o ficheiro, não abras; confirma com o remetente.</li>
+      </ul>
+    </section>
+
+    <!-- RECURSOS ÚTEIS -->
+    <section class="card pad" id="recursos" style="margin-top:18px">
+      <h2>Recursos úteis</h2>
+      <ul>
+        <li><a href="https://www.cncs.gov.pt/" target="_blank">CNCS — Centro Nacional de Cibersegurança</a></li>
+        <li><a href="https://www.seguranet.pt/" target="_blank">SeguraNet — Direção-Geral da Educação</a></li>
+        <li><a href="https://haveibeenpwned.com/" target="_blank">Verifica se o teu e-mail foi exposto</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      © AE João da Rosa — Comunidade Escolar · Última atualização: <span id="lastUpdate"></span>
+    </footer>
+  </div>
+
+  <script>
+    const d = new Date();
+    const fmt = d.toLocaleDateString('pt-PT', {year:'numeric', month:'2-digit', day:'2-digit'});
+    document.getElementById('today').textContent = fmt;
+    document.getElementById('lastUpdate').textContent = fmt;
+  </script>
+</body>
+</html>
