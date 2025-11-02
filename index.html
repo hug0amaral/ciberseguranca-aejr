@@ -7,8 +7,8 @@
   <meta name="description" content="Microsite minimalista para a comunidade escolar do AE João da Rosa. Atualizado com boas práticas de segurança digital e jogos educativos." />
   <style>
     :root{
-      --bg:#0f172a; --panel:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#22d3ee; --accent2:#7dd3fc;
-      --radius:16px; --shadow:0 18px 50px rgba(0,0,0,.25);
+      --bg:#0f172a; --panel:#111827; --muted:#94a3b8; --text:#e5e7eb;
+      --accent:#22d3ee; --accent2:#7dd3fc; --radius:16px; --shadow:0 18px 50px rgba(0,0,0,.25);
     }
     html{scroll-behavior:smooth}
     body{margin:0;background:linear-gradient(160deg,var(--bg),#0b1023);color:var(--text);
@@ -17,45 +17,34 @@
     header{padding:36px 0 12px}
     h1{margin:0 0 6px;font-size:clamp(26px,4vw,40px)}
     .subtitle{color:var(--muted);margin:0 0 18px}
-
     .brand{display:flex;align-items:center;gap:12px}
     .jr-gif{width:54px;height:auto;border-radius:8px;flex:0 0 auto}
-
-    .card{background:rgba(17,24,39,.6);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,.07);
-      border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card{background:rgba(17,24,39,.6);backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);box-shadow:var(--shadow)}
     .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
-    @media (max-width: 900px){.grid{grid-template-columns:1fr}}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
     .pad{padding:18px}
-    .pill{display:inline-block;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
-      color:var(--muted);font-size:12px}
+    .pill{display:inline-block;padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);color:var(--muted);font-size:12px}
     .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;
+      border-radius:12px;border:1px solid rgba(255,255,255,.12);
       text-decoration:none;color:var(--text)}
     .btn:hover{background:rgba(255,255,255,.06)}
-    ul{margin:0 0 0 18px}
     footer{color:var(--muted);font-size:14px;margin-top:24px}
 
-    /* ===== Jogos ===== */
+    /* Jogos */
     .game-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     @media (max-width:700px){.game-grid{grid-template-columns:1fr}}
-    .game-card{display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:14px;border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.03)}
+    .game-card{display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
     .game-title{font-weight:600}
     .game-actions{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
-    .game-link{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);
+    .game-link{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;
+      border-radius:10px;border:1px solid rgba(255,255,255,.12);
       color:var(--text);text-decoration:none}
     .game-link:hover{background:rgba(255,255,255,.06)}
     .locked{opacity:.6}
-    .badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.15);color:var(--muted)}
-    .stats{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
-    .stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:8px 10px;border-radius:10px}
-
-    /* Charts */
-    .charts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}
-    @media (max-width:900px){.charts{grid-template-columns:1fr}}
-    .chart-card{background:rgba(17,24,39,.6);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:12px}
-    .chart-title{font-size:14px;color:var(--muted);margin:0 0 8px}
-    canvas{width:100%;height:280px;display:block}
   </style>
 </head>
 <body>
@@ -80,7 +69,6 @@
       <section class="card pad" id="dica">
         <p class="pill">Atualiza aqui a cada nova dica</p>
         <h2 style="margin:6px 0 10px">Dica da Semana</h2>
-
         <div class="card pad" style="background:rgba(255,255,255,.03)">
           <strong>Phishing — Aprende a desconfiar</strong>
           <p>Se o e-mail parecer urgente, promete dinheiro ou pede dados pessoais, pára. Lê devagar, confirma o remetente e evita clicar em links desconhecidos.</p>
@@ -91,72 +79,53 @@
       <aside class="card pad">
         <h3>Reportar incidente</h3>
         <p>Usa o formulário oficial para reportar e-mails suspeitos.</p>
-        <p><a class="btn" href="https://forms.gle/SEU_FORMULARIO" target="_blank" rel="noopener">Abrir Formulário</a></p>
+        <p><a class="btn" href="https://forms.gle/SEU_FORMULARIO" target="_blank">Abrir Formulário</a></p>
         <hr style="border-color:rgba(255,255,255,.08)">
         <h3>Documentos</h3>
         <ul>
-          <li><a href="https://drive.google.com/file/d/1gl6KiIOySn5O2wimhUFjC8Yqm8Z-RUeN/view?usp=sharing" target="_blank" rel="noopener">Manual prático de cibersegurança (PDF)</a></li>
+          <li><a href="https://drive.google.com/file/d/1gl6KiIOySn5O2wimhUFjC8Yqm8Z-RUeN/view?usp=sharing" target="_blank">Manual prático de cibersegurança (PDF)</a></li>
           <li><a href="mailto:SEGURANCA@ESCOLA.PT">Contacto de referência</a></li>
         </ul>
       </aside>
     </main>
 
-    <!-- JOGOS -->
     <section class="card pad" id="jogos" style="margin-top:18px">
       <h2>Jogos</h2>
       <p class="pill">Explora, aprende e joga em segurança</p>
 
-          
-      <div class="game-grid" role="list" style="margin-top:16px">
-        <article class="game-card" role="listitem">
+      <div class="game-grid" style="margin-top:16px">
+        <article class="game-card">
           <div class="game-title">1️⃣ CiberQuiz JR</div>
-          <p class="game-desc">Perguntas rápidas para testares noções-chave de cibersegurança.</p>
+          <p>Perguntas rápidas para testares noções-chave de cibersegurança.</p>
           <div class="game-actions">
-            <a class="game-link" href="ciberquiz.html" target="_blank" rel="noopener" aria-label="Jogar CiberQuiz JR">▶️ Jogar agora</a>
+            <a class="game-link" href="ciberquiz.html" target="_blank">▶️ Jogar agora</a>
           </div>
         </article>
 
-        <article class="game-card locked" role="listitem">
+        <article class="game-card locked">
           <div class="game-title">2️⃣ Detecta o Phishing!</div>
-          <p class="game-desc">Analisa e-mails e decide se são legítimos ou phishing.</p>
+          <p>Analisa e-mails e decide se são legítimos ou phishing.</p>
           <div class="game-actions">
-            <a class="game-link" href="phishing.html" target="_blank" rel="noopener">🔧 Em construção</a>
+            <a class="game-link" href="#">🔧 Em construção</a>
           </div>
         </article>
 
-        <article class="game-card locked" role="listitem">
+        <article class="game-card locked">
           <div class="game-title">3️⃣ Senhas Seguras</div>
-          <p class="game-desc">Cria e avalia a robustez de palavras-passe.</p>
+          <p>Cria e avalia a robustez de palavras-passe.</p>
           <div class="game-actions">
-            <a class="game-link" href="senhas.html" target="_blank" rel="noopener">🔧 Em construção</a>
+            <a class="game-link" href="#">🔧 Em construção</a>
           </div>
         </article>
 
-        <article class="game-card locked" role="listitem">
+        <article class="game-card locked">
           <div class="game-title">4️⃣ Fake News Detector</div>
-          <p class="game-desc">Distingue factos de títulos sensacionalistas.</p>
+          <p>Distingue factos de títulos sensacionalistas.</p>
           <div class="game-actions">
-            <a class="game-link" href="fakenews.html" target="_blank" rel="noopener">🔧 Em construção</a>
+            <a class="game-link" href="#">🔧 Em construção</a>
           </div>
         </article>
       </div>
-    </section>
-
-    <section class="card pad" id="arquivo" style="margin-top:18px">
-      <h2>Arquivo de Dicas</h2>
-      <ul>
-        <li><strong>2025-10-20</strong> — Senhas fortes: usa frases longas e ativa MFA sempre que possível.</li>
-        <li><strong>2025-10-13</strong> — Anexos: se não esperavas o ficheiro, não abras; confirma com o remetente.</li>
-      </ul>
-    </section>
-
-    <section class="card pad" id="recursos" style="margin-top:18px">
-      <h2>Recursos úteis</h2>
-      <ul>
-        <li><a href="https://www.cncs.gov.pt/" target="_blank" rel="noopener">CNCS — Centro Nacional de Cibersegurança</a></li>
-        <li><a href="https://www.seguranet.pt/" target="_blank" rel="noopener">SeguraNet — Direção-Geral da Educação</a></li>
-        <li><a href="https://haveibeenpwned.com/" target="_blank" rel="noopener">Verifica se o teu e-mail foi exposto</a></li>
-      </ul>
     </section>
 
     <footer>
@@ -164,59 +133,10 @@
     </footer>
   </div>
 
-  <!-- Chart.js (CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-1" crossorigin="anonymous"></script>
-
   <script>
-    // === datas ===
-    const d = new Date();
-    const fmt = d.toLocaleDateString('pt-PT',{year:'numeric',month:'2-digit',day:'2-digit'});
-    const todayEl = document.getElementById('today');
-    if (todayEl) todayEl.textContent = fmt;
-    document.getElementById('lastUpdate').textContent = fmt;
-
-    // === Estatísticas em tempo real ===
-    const STATS_API = 'https://script.google.com/macros/s/AKfycbykT3PpcCbNpP2gjFODX43Cjm4PfK0zcHgD98MvTv_ZGglBzG9RilqhaD6lKbGgeiiD/exec';
-    const setStat = (id,val)=>{const el=document.getElementById(id); if(el) el.textContent=val;};
-
-    // Charts vars
-    let donutChart, barChart;
-
-    // Cores adaptadas ao tema
-    const donutColors = ['#22d3ee', 'rgba(255,255,255,0.12)'];
-    const barColors = ['#7dd3fc', '#22d3ee'];
-    const gridColor = 'rgba(255,255,255,0.1)';
-    const tickColor = '#cbd5e1';
-
-    fetch(STATS_API)
-      .then(r=>r.json())
-      .then(({started,finished,avgScore})=>{
-        const avg = Number.isFinite(avgScore)? avgScore : 0;
-        setStat('s-started', started ?? '0');
-        setStat('s-finished', finished ?? '0');
-        setStat('s-avg', (avg ?? 0) + '%');
-
-        // Donut média
-        const donutCtx = document.getElementById('avgDonut').getContext('2d');
-        donutChart = new Chart(donutCtx, {
-          type: 'doughnut',
-          data: {
-            labels: ['Média', 'Restante'],
-            datasets: [{ data: [avg, Math.max(0,100-avg)], backgroundColor: donutColors, borderWidth: 0 }]
-          },
-          options: {
-            responsive: true,
-            cutout: '68%',
-            plugins: {
-              legend: { display: false },
-              tooltip: { enabled: true }
-            }
-          }
-        });
-
-   
+    const hoje = new Date().toLocaleDateString('pt-PT',{year:'numeric',month:'2-digit',day:'2-digit'});
+    document.getElementById('today').textContent = hoje;
+    document.getElementById('lastUpdate').textContent = hoje;
   </script>
 </body>
 </html>
-
-
