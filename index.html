@@ -214,28 +214,9 @@
           }
         });
 
-        // Barras iniciados/terminados
-        const barCtx = document.getElementById('startFinishBar').getContext('2d');
-        barChart = new Chart(barCtx, {
-          type: 'bar',
-          data: {
-            labels: ['Iniciados','Terminados'],
-            datasets: [{ data: [started||0, finished||0], backgroundColor: barColors, borderWidth: 0 }]
-          },
-          options: {
-            responsive: true,
-            plugins: { legend: { display:false }, tooltip:{ enabled:true } },
-            scales: {
-              y: { beginAtZero:true, grid:{color:gridColor}, ticks:{color:tickColor} },
-              x: { grid:{display:false}, ticks:{color:tickColor} }
-            }
-          }
-        });
-      })
-      .catch(()=>{
-        setStat('s-started','—'); setStat('s-finished','—'); setStat('s-avg','—');
-      });
+   
   </script>
 </body>
 </html>
+
 
