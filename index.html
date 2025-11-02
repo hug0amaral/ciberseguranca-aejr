@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cibersegurança · Comunidade Escolar AE João da Rosa</title>
-  <meta name="description" content="Microsite minimalista para a comunidade escolar do AE João da Rosa. Atualizado semanalmente com boas práticas de segurança digital." />
+  <meta name="description" content="Microsite minimalista para a comunidade escolar do AE João da Rosa. Atualizado com boas práticas de segurança digital e jogos educativos." />
   <style>
     :root{
       --bg:#0f172a; --panel:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#22d3ee; --accent2:#7dd3fc;
@@ -47,6 +47,8 @@
     .game-link:hover{background:rgba(255,255,255,.06)}
     .locked{opacity:.6}
     .badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.15);color:var(--muted)}
+    .stats{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+    .stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:8px 10px;border-radius:10px}
   </style>
 </head>
 <body>
@@ -96,6 +98,13 @@
     <section class="card pad" id="jogos" style="margin-top:18px">
       <h2>Jogos</h2>
       <p class="pill">Explora, aprende e joga em segurança</p>
+
+      <!-- Estatísticas em tempo real (acumulado) -->
+      <div class="stats" aria-live="polite">
+        <div class="stat">Iniciados: <strong id="s-started">—</strong></div>
+        <div class="stat">Terminados: <strong id="s-finished">—</strong></div>
+        <div class="stat">Taxa de sucesso: <strong id="s-rate">—</strong></div>
+      </div>
 
       <div class="game-grid" role="list">
         <article class="game-card" role="listitem">
@@ -155,13 +164,28 @@
   </div>
 
   <script>
+    // datas de rodapé
     const d = new Date();
     const fmt = d.toLocaleDateString('pt-PT', {year:'numeric', month:'2-digit', day:'2-digit'});
     const todayEl = document.getElementById('today');
     if (todayEl) todayEl.textContent = fmt;
     document.getElementById('lastUpdate').textContent = fmt;
+
+    // === Estatísticas em tempo real (Apps Script) ===
+    const STATS_API = 'https://script.google.com/macros/s/AKfycbykT3PpcCbNpP2gjFODX43Cjm4PfK0zcHgD98MvTv_ZGglBzG9RilqhaD6lKbGgeiiD/exec';
+
+    function setStat(id, val){ const el = document.getElementById(id); if(el) el.textContent = val; }
+
+    fetch(STATS_API)
+      .then(r => r.json())
+      .then(({started, finished, successRate}) => {
+        setStat('s-started', started ?? '0');
+        setStat('s-finished', finished ?? '0');
+        setStat('s-rate', (successRate ?? 0) + '%');
+      })
+      .catch(() => {
+        setStat('s-started','—'); setStat('s-finished','—'); setStat('s-rate','—');
+      });
   </script>
 </body>
 </html>
-
-
