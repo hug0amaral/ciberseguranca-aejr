@@ -63,6 +63,9 @@
   </div>
 
   <script>
+    // URL do Web App (Google Apps Script) para guardar estatísticas
+    const STATS_URL = 'https://script.google.com/macros/s/AKfycbw2HOPf9PRqZTHd004_m0glsl8OaHm_d90hfFBG0ObWdMLhre5KxWRI4RSQ7-37DWm6/exec';
+
     // Espera até o DOM estar totalmente carregado
     window.addEventListener('DOMContentLoaded', () => {
       const quizData = [
@@ -174,7 +177,15 @@
       let currentQuestion = 0;
       let score = 0;
 
-      startBtn.addEventListener('click', startQuiz);
+      // Início do jogo + registo "start"
+      startBtn.addEventListener('click', () => {
+        startQuiz();
+        fetch(STATS_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ event: 'start' })
+        }).catch(() => {});
+      });
 
       function startQuiz() {
         currentQuestion = 0;
@@ -227,6 +238,15 @@
       function showResult() {
         quizContainer.innerHTML = '';
         const percent = Math.round((score / quizData.length) * 100);
+
+        // Registo "finish" com percentagem e sucesso (>=80%)
+        const success = percent >= 80;
+        fetch(STATS_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ event: 'finish', percent, success })
+        }).catch(() => {});
+
         let feedback = '';
         let trophy = '';
         if (percent < 40) {
@@ -252,7 +272,7 @@
         quizContainer.appendChild(retryBtn);
       }
 
-      // Toca um pequeno beep usando a Web Audio API
+      // Toca um pequeno beep usando a Web Audio API
       function playBeep() {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
         const osc = ctx.createOscillator();
