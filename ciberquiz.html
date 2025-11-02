@@ -28,9 +28,9 @@
 
   <script>
     // URL do teu Web App (Apps Script) — público (/exec)
-    const STATS_URL = 'const STATS_URL = 'https://script.google.com/macros/s/AKfycbxDdx6VZ19YSF8BJax85mO_g3p7RydkZXCo4jTtHJdpGLfJKJgmsyfXmFUz7zwV-i0s/exec';
+    const STATS_URL = 'https://script.google.com/macros/s/AKfycbykT3PpcCbNpP2gjFODX43Cjm4PfK0zcHgD98MvTv_ZGglBzG9RilqhaD6lKbGgeiiD/exec';
 
-    // Util: registar evento no Sheets (sem bloquear por CORS)
+    // Função utilitária para registar eventos (evita bloqueios CORS)
     function logEvent(payload){
       try{
         fetch(STATS_URL, { method:'POST', mode:'no-cors', body: JSON.stringify(payload) });
@@ -127,35 +127,4 @@
         if (percent < 40)       feedback = 'Iniciante – continua a aprender e a proteger-te!';
         else if (percent < 80)  feedback = 'Cuidadoso – estás no bom caminho, mas ainda há espaço para melhorar.';
         else if (percent < 100) feedback = 'Muito bem! Mas tenta alcançar os 100% para te tornares um Agente Digital.';
-        else { feedback = 'Agente Digital – excelente, és um verdadeiro defensor da segurança digital!'; trophy = ' 🏆'; playBeep(); }
-
-        const resultDiv = document.createElement('div');
-        resultDiv.classList.add('result');
-        resultDiv.innerHTML = `<p>A tua pontuação: <strong>${percent}%</strong>${trophy}</p><p>${feedback}</p>`;
-
-        const retryBtn = document.createElement('button');
-        retryBtn.textContent = 'Jogar de novo';
-        retryBtn.addEventListener('click', () => {
-          startBtn.style.display = '';
-          quizContainer.innerHTML = '';
-        });
-
-        quizContainer.appendChild(resultDiv);
-        quizContainer.appendChild(retryBtn);
-      }
-
-      // Som de “vitória”
-      function playBeep(){
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(520, ctx.currentTime);
-        gain.gain.setValueAtTime(0.05, ctx.currentTime);
-        osc.connect(gain); gain.connect(ctx.destination);
-        osc.start(); osc.stop(ctx.currentTime + .6);
-      }
-    });
-  </script>
-</body>
-</html>
+        else { feedback = 'Agente Digital – excelente, és um verdadeiro defensor da segurança digital!'; trophy = ' 🏆';
