@@ -23,20 +23,19 @@
   </header>
 
   <div class="container" id="quiz-container">
-    <button id="start-btn">Iniciar Quiz</button>
+    <!-- fallback inline: garante clique mesmo que JS não ligue eventos -->
+    <button id="start-btn" onclick="startQuizFromClick()">Iniciar Quiz</button>
   </div>
 
-  <!-- Script NO FIM para garantir que o botão já existe -->
+  <!-- Script no fim para garantir DOM carregado -->
   <script>
-    // URL do teu Web App (AJUSTA se mudares a implementação)
     const STATS_URL = 'https://script.google.com/macros/s/AKfycbykT3PpcCbNpP2gjFODX43Cjm4PfK0zcHgD98MvTv_ZGglBzG9RilqhaD6lKbGgeiiD/exec';
 
-    // util de envio sem CORS; nunca bloqueia o fluxo do jogo
     function logEvent(payload){
       try{ fetch(STATS_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(payload)}); }catch(_){}
     }
 
-    // ——— DADOS DO QUIZ ———
+    // ===== Dados do quiz =====
     const quizData = [
       { question:"1. O que deves fazer antes de clicares num link num e-mail suspeito?",
         answers:["Responder ao e-mail para pedir confirmação","Clicar de imediato porque parece urgente","Passar o rato sobre o link para ver o URL","Reencaminhar para todos os contactos"], correct:2 },
@@ -60,39 +59,43 @@
         answers:["Ignorar","Partilhar nas redes sociais","Reportar às autoridades e alterar senhas","Fazer login em todas as contas"], correct:2 }
     ];
 
-    // ——— LÓGICA ———
     const quizContainer = document.getElementById('quiz-container');
     const startBtn = document.getElementById('start-btn');
 
     let currentQuestion = 0;
     let score = 0;
 
-    // se o botão não existir, aborta (proteção extra)
-    if(startBtn){
-      startBtn.addEventListener('click', () => {
-        logEvent({ event:'start', ua:navigator.userAgent });
-        startQuiz();
-      });
+    // redundância: também liga via JS quando o DOM carregar
+    window.addEventListener('DOMContentLoaded', function(){
+      if(startBtn){
+        startBtn.addEventListener('click', startQuizFromClick);
+      }
+    });
+
+    // função global chamada pelo onclick inline (fallback à prova de bala)
+    function startQuizFromClick(){
+      logEvent({ event:'start', ua:navigator.userAgent });
+      startQuiz();
     }
 
     function startQuiz(){
       currentQuestion = 0;
       score = 0;
-      startBtn.style.display = 'none';
+      if(startBtn) startBtn.style.display = 'none';
       showQuestion();
     }
 
     function showQuestion(){
       const q = quizData[currentQuestion];
-      // limpa e escreve
       quizContainer.innerHTML = '';
+
       const questionElem = document.createElement('div');
       questionElem.className = 'question';
       questionElem.innerHTML = '<h2>'+ q.question +'</h2>';
 
       const answersElem = document.createElement('div');
       answersElem.className = 'answers';
-      q.answers.forEach((ans,i)=>{
+      q.answers.forEach(function(ans,i){
         const label = document.createElement('label');
         label.innerHTML = '<input type="radio" name="quiz" value="'+i+'"> ' + ans;
         answersElem.appendChild(label);
@@ -134,11 +137,12 @@
 
       const retryBtn = document.createElement('button');
       retryBtn.textContent = 'Jogar de novo';
-      retryBtn.addEventListener('click', ()=>{
-        // volta ao estado inicial
+      retryBtn.addEventListener('click', function(){
         quizContainer.innerHTML = '';
-        startBtn.style.display = '';
-        quizContainer.appendChild(startBtn);
+        if(startBtn){
+          startBtn.style.display = '';
+          quizContainer.appendChild(startBtn);
+        }
       });
 
       quizContainer.appendChild(resultDiv);
