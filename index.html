@@ -106,6 +106,22 @@
           </div>
         </article>
 
+        
+        <p class="badge">Jogos iniciados: <span id="s-started">—</span></p>
+<p class="badge">Jogos terminados: <span id="s-finished">—</span></p>
+<p class="badge">Taxa de sucesso: <span id="s-rate">—</span></p>
+
+<script>
+fetch('https://script.google.com/macros/s/AKfycbykT3PpcCbNpP2gjFODX43Cjm4PfK0zcHgD98MvTv_ZGglBzG9RilqhaD6lKbGgeiiD/exec')
+  .then(r => r.json())
+  .then(({started, finished, successRate}) => {
+    document.getElementById('s-started').textContent  = started;
+    document.getElementById('s-finished').textContent = finished;
+    document.getElementById('s-rate').textContent     = successRate + '%';
+  })
+  .catch(()=>{});
+</script>
+
         <article class="game-card locked" role="listitem">
           <div class="game-title">2️⃣ Detecta o Phishing!</div>
           <p class="game-desc">Analisa e-mails e decide se são legítimos ou phishing.</p>
@@ -163,3 +179,4 @@
   </script>
 </body>
 </html>
+
