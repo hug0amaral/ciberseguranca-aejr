@@ -7,50 +7,20 @@
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #F7F7F7;
-      color: #192B4D;
+      margin: 0; padding: 0;
+      background: #F7F7F7; color: #192B4D;
     }
-    header {
-      background: #002F6C;
-      color: #fff;
-      padding: 20px 10px;
-    }
-    h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+    header { background: #002F6C; color: #fff; padding: 20px 10px; }
+    h1 { margin: 0; font-size: 28px; }
+    .container { max-width: 800px; margin: 20px auto; padding: 20px; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
     button {
-      background: #002F6C;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      margin-top: 10px;
-      cursor: pointer;
-      font-size: 16px;
+      background: #002F6C; color: #fff; border: none;
+      padding: 10px 20px; margin-top: 10px; cursor: pointer; font-size: 16px;
     }
-    button:hover {
-      background: #405677;
-    }
-    .question h2 {
-      font-size: 20px;
-    }
-    .answers label {
-      display: block;
-      margin: 8px 0;
-    }
-    .result {
-      font-size: 20px;
-      margin-top: 20px;
-    }
+    button:hover { background: #405677; }
+    .question h2 { font-size: 20px; }
+    .answers label { display: block; margin: 8px 0; }
+    .result { font-size: 20px; margin-top: 20px; }
   </style>
 </head>
 <body>
@@ -58,117 +28,82 @@
     <h1>CiberQuiz JR</h1>
     <p>Testa os teus conhecimentos de cibersegurança</p>
   </header>
+
   <div class="container" id="quiz-container">
     <button id="start-btn">Iniciar Quiz</button>
   </div>
 
   <script>
-    // URL do Web App (Google Apps Script) para guardar estatísticas
-    const STATS_URL = 'https://script.google.com/macros/s/AKfycbxDdx6VZ19YSf8BJax85mO_g3p7RydkZXCo4jTtHJdpGLfJKJgmsyfXmFEu7zzwV-i0s/exec';
+    // URL do teu Web App (Apps Script) — já pronto
+    const STATS_URL = 'https://script.google.com/macros/s/AKfycbxDdx6VZ19YSF8BJax85mO_g3p7RydkZXCo4jTtHJdpGLfJKJgmsyfXmFUz7zwV-i0s/exec';
 
-    // Espera até o DOM estar totalmente carregado
     window.addEventListener('DOMContentLoaded', () => {
       const quizData = [
-        {
-          question: "1. O que deves fazer antes de clicares num link num e-mail suspeito?",
+        { question: "1. O que deves fazer antes de clicares num link num e-mail suspeito?",
           answers: [
             "Responder ao e-mail para pedir confirmação",
             "Clicar de imediato porque parece urgente",
             "Passar o rato sobre o link para ver o URL",
             "Reencaminhar para todos os contactos"
-          ],
-          correct: 2
-        },
-        {
-          question: "2. Qual das opções representa uma senha segura?",
-          answers: [
-            "12345678",
-            "abcdefg",
-            "joaodarosa2025",
-            "M4iS_S3gUr@_2025"
-          ],
-          correct: 3
-        },
-        {
-          question: "3. O que é o phishing?",
+          ], correct: 2 },
+        { question: "2. Qual das opções representa uma senha segura?",
+          answers: ["12345678","abcdefg","joaodarosa2025","M4iS_S3gUr@_2025"], correct: 3 },
+        { question: "3. O que é o phishing?",
           answers: [
             "Um vírus que invade o computador",
             "Um método para enganar alguém e obter dados pessoais",
             "Um programa de antivírus",
             "Um tipo de firewall"
-          ],
-          correct: 1
-        },
-        {
-          question: "4. A que se refere o termo 'autenticação em dois fatores' (2FA)?",
+          ], correct: 1 },
+        { question: "4. A que se refere o termo 'autenticação em dois fatores' (2FA)?",
           answers: [
             "Usar dois computadores ao mesmo tempo",
             "Usar uma password e outro método (SMS, app) para confirmar a identidade",
             "Ter duas contas de e-mail",
             "Fazer o login duas vezes seguidas"
-          ],
-          correct: 1
-        },
-        {
-          question: "5. Qual é o comportamento mais seguro ao usar Wi-Fi público?",
+          ], correct: 1 },
+        { question: "5. Qual é o comportamento mais seguro ao usar Wi-Fi público?",
           answers: [
             "Aceder a serviços bancários normalmente",
             "Partilhar a ligação com amigos",
             "Evitar inserir dados pessoais ou fazer compras online",
             "Usar a mesma senha do Wi-Fi em casa"
-          ],
-          correct: 2
-        },
-        {
-          question: "6. O que é uma firewall?",
+          ], correct: 2 },
+        { question: "6. O que é uma firewall?",
           answers: [
             "Uma parede de fogo",
             "Um software ou hardware que filtra acessos à rede",
             "Um tipo de antivírus online",
             "Um disco rígido externo"
-          ],
-          correct: 1
-        },
-        {
-          question: "7. Qual a forma mais adequada de agir se receberes um e-mail de um desconhecido com anexo?",
+          ], correct: 1 },
+        { question: "7. Qual a forma mais adequada de agir se receberes um e-mail de um desconhecido com anexo?",
           answers: [
             "Abrir o anexo para ver o conteúdo",
             "Apagar o e-mail ou marcar como spam, sem abrir o anexo",
             "Responder a perguntar quem é",
             "Partilhar o anexo com um amigo para ver"
-          ],
-          correct: 1
-        },
-        {
-          question: "8. Porque é importante atualizar o software?",
+          ], correct: 1 },
+        { question: "8. Porque é importante atualizar o software?",
           answers: [
             "Para ter novas funcionalidades e corrigir falhas de segurança",
             "Porque é obrigatório por lei",
             "Para gastar dados de internet",
             "Para apagar os vírus já instalados"
-          ],
-          correct: 0
-        },
-        {
-          question: "9. Qual destes é um exemplo de notícia falsa (fake news)?",
+          ], correct: 0 },
+        { question: "9. Qual destes é um exemplo de notícia falsa (fake news)?",
           answers: [
             "Uma notícia de fonte oficial com data e autor claros",
             "Uma notícia sensacionalista que pede para partilhar sem fontes",
             "Um artigo científico com referências",
             "Uma notícia do site da escola"
-          ],
-          correct: 1
-        },
-        {
-          question: "10. O que deves fazer se suspeitares de roubo de identidade?",
+          ], correct: 1 },
+        { question: "10. O que deves fazer se suspeitares de roubo de identidade?",
           answers: [
             "Ignorar e continuar a navegar",
             "Partilhar nas redes sociais o que aconteceu",
             "Reportar de imediato às autoridades e alterar as senhas",
             "Fazer login em todas as contas para ver se estão bem"
-          ],
-          correct: 2
-        }
+          ], correct: 2 }
       ];
 
       const quizContainer = document.getElementById('quiz-container');
@@ -180,11 +115,13 @@
       // Início do jogo + registo "start"
       startBtn.addEventListener('click', () => {
         startQuiz();
-        fetch(STATS_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ event: 'start' })
-        }).catch(() => {});
+        try {
+          fetch(STATS_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify({ event: 'start', ua: navigator.userAgent })
+          });
+        } catch(_) {}
       });
 
       function startQuiz() {
@@ -197,6 +134,7 @@
       function showQuestion() {
         quizContainer.innerHTML = '';
         const q = quizData[currentQuestion];
+
         const questionElem = document.createElement('div');
         questionElem.classList.add('question');
         questionElem.innerHTML = '<h2>' + q.question + '</h2>';
@@ -224,7 +162,7 @@
           alert('Seleciona uma resposta antes de continuar!');
           return;
         }
-        if (parseInt(selected.value) === quizData[currentQuestion].correct) {
+        if (parseInt(selected.value, 10) === quizData[currentQuestion].correct) {
           score++;
         }
         currentQuestion++;
@@ -240,12 +178,18 @@
         const percent = Math.round((score / quizData.length) * 100);
 
         // Registo "finish" com percentagem e sucesso (>=80%)
-        const success = percent >= 80;
-        fetch(STATS_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ event: 'finish', percent, success })
-        }).catch(() => {});
+        try {
+          fetch(STATS_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify({
+              event: 'finish',
+              percent: percent,
+              success: percent >= 80,
+              ua: navigator.userAgent
+            })
+          });
+        } catch(_) {}
 
         let feedback = '';
         let trophy = '';
@@ -258,34 +202,15 @@
         } else {
           feedback = 'Agente Digital – excelente, és um verdadeiro defensor da segurança digital!';
           trophy = ' 🏆';
-          playBeep(); // toca o beep épico
+          playBeep();
         }
+
         const resultDiv = document.createElement('div');
         resultDiv.classList.add('result');
-        resultDiv.innerHTML = '<p>A tua pontuação: <strong>' + percent + '%</strong>' + trophy + '</p><p>' + feedback + '</p>';
+        resultDiv.innerHTML =
+          '<p>A tua pontuação: <strong>' + percent + '%</strong>' + trophy + '</p><p>' + feedback + '</p>';
 
         const retryBtn = document.createElement('button');
         retryBtn.textContent = 'Jogar de novo';
-        retryBtn.addEventListener('click', startQuiz);
-
-        quizContainer.appendChild(resultDiv);
-        quizContainer.appendChild(retryBtn);
-      }
-
-      // Toca um pequeno beep usando a Web Audio API
-      function playBeep() {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = ctx.createOscillator();
-        const gainNode = ctx.createGain();
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(520, ctx.currentTime);
-        gainNode.gain.setValueAtTime(0.05, ctx.currentTime); // volume baixo
-        osc.connect(gainNode);
-        gainNode.connect(ctx.destination);
-        osc.start();
-        osc.stop(ctx.currentTime + 0.6);
-      }
-    });
-  </script>
-</body>
-</html>
+        retryBtn.addEventListener('click', () => {
+          startBtn.style.display =
