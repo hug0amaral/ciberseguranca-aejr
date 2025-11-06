@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Competências e Conhecimentos Cloud – Agrupamento de Escolas João da Rosa</title>
+  <style>
+    :root { --bg: #f3f4f6; --accent: #ffe600; --text: #1f2937; --card: #ffe7a3; }
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    header.topbar { background: #fff; border-bottom: 1px solid rgba(0,0,0,.08);
+                    padding: .8rem 1.2rem; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-weight: 700; font-size: 1rem; }
+    .year { font-size: .7rem; color: #6b7280; }
+    .container { width: min(1100px, 100%); margin: 0 auto; padding: 2rem 1rem 4rem; }
+    .header-main { text-align: center; margin-bottom: 1.5rem; }
+    .title-box { background: var(--accent); display: inline-block; padding: .9rem 2.5rem;
+                 border-radius: 12px; border: 2px solid #000; font-weight: 600; font-size: 1.2rem; }
+    .line { width: 2px; height: 28px; background: #1f2937; margin: 0.4rem auto 0; }
+    nav.quick-nav { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; margin: 1.4rem 0 1.3rem; }
+    nav.quick-nav a { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 999px;
+                      padding: .35rem .8rem; font-size: .75rem; text-decoration: none; color: #111827; }
+    .intro { background: #ffffff; border: 2px solid #000; border-radius: 16px;
+             padding: 1rem 1.25rem 1rem; margin-bottom: 1.5rem; }
+    .intro p { margin-bottom: .6rem; line-height: 1.5; }
+    article.step { background: var(--card); border: 2px solid #000; border-radius: 14px;
+                   padding: 1.05rem 1.2rem 1.2rem; margin-bottom: 1rem; }
+    .step h2 { font-size: 1rem; margin: 0 0 .4rem 0; }
+    .audience { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .5rem; }
+    .audience span { background: rgba(0,0,0,.05); border-radius: 999px; padding: .2rem .65rem;
+                     font-size: .62rem; font-weight: 500; }
+    .step ul { margin-left: 1rem; }
+    .resources { margin-top: .6rem; background: #fff; border: 1px solid rgba(0,0,0,.08);
+                 border-radius: 10px; padding: .5rem .6rem .6rem; display: flex; flex-direction: column; gap: .3rem; }
+    .resources-title { font-size: .7rem; text-transform: uppercase; letter-spacing: .03em;
+                       font-weight: 600; margin-bottom: .25rem; }
+    .resources a { font-size: .72rem; text-decoration: none; color: #111827; }
+    details.tech { margin-top: .6rem; background: rgba(255,255,255,.65);
+                   border: 1px dashed rgba(0,0,0,.25); border-radius: 8px; padding: .4rem .6rem .6rem; }
+    details.tech summary { cursor: pointer; font-size: .72rem; font-weight: 600; }
+    footer { margin-top: 2.5rem; text-align: center; font-size: .7rem; color: #6b7280; padding-bottom: 2rem; }
+    @media (max-width: 650px) { nav.quick-nav { justify-content: flex-start; } .title-box { width: 100%; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="brand">Agrupamento de Escolas João da Rosa – Competências Cloud</div>
+      <div class="year">Ano letivo 2025/2026</div>
+    </div>
+  </header>
+
+  <div class="container">
+    <header class="header-main">
+      <div class="title-box">Competências e Conhecimentos Cloud (Cloud Skills and Knowledge)</div>
+      <div class="line"></div>
+    </header>
+
+    <nav class="quick-nav" aria-label="Navegação rápida">
+      <a href="#sec-intro-cloud">O que é a cloud</a>
+      <a href="#sec-seguranca">Segurança</a>
+      <a href="#sec-cloud-local">Cloud vs Local</a>
+      <a href="#sec-iac">IaC</a>
+      <a href="#sec-serverless">Serverless</a>
+      <a href="#sec-google">Serviços Google</a>
+      <a href="#sec-escola">Exemplos</a>
+    </nav>
+
+    <section class="intro" id="sec-intro-cloud">
+      <p><strong>O que é a cloud (computação na nuvem)?</strong></p>
+      <p>A cloud é usar servidores na internet para guardar ficheiros e usar aplicações, em vez de depender só dos computadores da escola.
+      Isto é válido para Google, Microsoft, Amazon e outros. A vantagem é que podemos aceder de qualquer lugar, partilhar, e não ficamos dependentes de uma máquina.</p>
+      <p>Na escola isto traduz-se em: trabalhos no Classroom, documentos no Drive, formulários online, contas seguras — tudo isto é cloud.</p>
+    </section>
+
+    <article class="step" id="sec-seguranca">
+      <h2>1. Segurança na Cloud (Cloud Security)</h2>
+      <div class="audience"><span>Professores</span><span>Equipa TIC</span><span>Encarregados de educação</span></div>
+      <p>Usar cloud sem segurança é pôr a mochila no recreio aberta. Esta parte é para garantir que isso não acontece.</p>
+      <ul>
+        <li>Ativar autenticação de dois fatores nas contas institucionais.</li>
+        <li>Partilhar documentos apenas com utilizadores da escola.</li>
+        <li>Explicar a pais e alunos que os dados não ficam “na internet”, ficam em serviços geridos.</li>
+      </ul>
+      <div class="resources">
+        <div class="resources-title">Recursos para aprofundar</div>
+        <a href="https://www.nau.edu.pt/pt/curso/seguranca-na-cloud/">NAU – Segurança na Cloud</a>
+        <a href="https://learn.microsoft.com/pt-pt/azure/security/">Microsoft – Introdução à segurança na cloud</a>
+        <a href="https://www.youtube.com/watch?v=FA4_nzMiK0g">YouTube – Segurança de dados na nuvem (PT)</a>
+      </div>
+    </article>
+
+    <article class="step" id="sec-cloud-local">
+      <h2>2. Serviços na Cloud e Serviços Locais (Cloud vs On-Premises)</h2>
+      <div class="audience"><span>Professores</span><span>Alunos</span><span>Equipa TIC</span></div>
+      <p>Nem tudo tem de estar na internet. Algumas coisas fazem mais sentido ficar dentro da escola. O importante é saber quando usar cada um.</p>
+      <ul>
+        <li><strong>Cloud:</strong> aceder em casa, no telemóvel, partilhar com a turma — Google Drive, OneDrive, Moodle alojado.</li>
+        <li><strong>Local:</strong> coisas que só devem estar na escola ou que dependem da rede interna.</li>
+        <li><strong>Híbrido:</strong> a realidade das escolas — parte na cloud, parte local.</li>
+      </ul>
+      <div class="resources">
+        <div class="resources-title">Recursos para aprofundar</div>
+        <a href="https://www.microsoft.com/pt-pt/microsoft-365/business-insights-ideas/resources/cloud-storage-vs-on-premises-servers">Microsoft – Cloud vs servidor local</a>
+        <a href="https://pt.wikipedia.org/wiki/Computa%C3%A7%C3%A3o_em_nuvem">Wikipédia – Computação em nuvem</a>
+        <a href="https://www.youtube.com/watch?v=6SbdwxLyv0w">YouTube – Servidor local vs Cloud (PT)</a>
+      </div>
+    </article>
+
+    <article class="step" id="sec-iac">
+      <h2>3. Infraestrutura como Código (Infrastructure as Code – IaC)</h2>
+      <div class="audience"><span>Professores TIC</span><span>Alunos cursos profissionais</span><span>Equipa TIC</span></div>
+      <p>É o lado “engenharia” da cloud: montar ambientes com ficheiros, não com cliques. Mostra para onde vai a área.</p>
+      <ul>
+        <li>Criar ambientes de laboratório repetíveis para turmas.</li>
+        <li>Guardar a configuração como código e versionar.</li>
+        <li>Explicar aos alunos que infraestruturas também podem ser automatizadas.</li>
+      </ul>
+      <div class="resources">
+        <div class="resources-title">Recursos para aprofundar</div>
+        <a href="https://aws.amazon.com/pt/what-is/iac/">AWS – O que é IaC?</a>
+        <a href="https://cloud.google.com/docs/iac?hl=pt">Google Cloud – IaC</a>
+        <a href="https://www.youtube.com/watch?v=9VxC5XbkqK0">YouTube – Introdução a IaC (PT/BR)</a>
+      </div>
+    </article>
+
+    <article class="step" id="sec-serverless">
+      <h2>4. Serverless (Computação sem servidor)</h2>
+      <div class="audience"><span>Professores TIC</span><span>Alunos</span></div>
+      <p>Queres pôr uma função a correr na cloud sem comprar servidor? É isto. Ideal para projetos pequenos de alunos.</p>
+      <ul>
+        <li>Automatizar tarefas: quando chega um formulário, guardar numa folha.</li>
+        <li>Projetos de programação que precisam de estar online.</li>
+        <li>Pagas/usas só quando é executado.</li>
+      </ul>
+      <div class="resources">
+        <div class="resources-title">Recursos para aprofundar</div>
+        <a href="https://www.ibm.com/br-pt/think/topics/serverless">IBM – O que é computação sem servidor</a>
+        <a href="https://www.redhat.com/pt-br/topics/cloud-native-apps/what-is-serverless">Red Hat – Serverless</a>
+        <a href="https://www.youtube.com/watch?v=q2V9oBzHqJo">YouTube – Serverless explicado</a>
+      </div>
+    </article>
+
+    <article class="step" id="sec-google">
+      <h2>5. Serviços Google na Cloud (Google Cloud Services)</h2>
+      <div class="audience"><span>Professores</span><span>Alunos</span><span>Encarregados de educação</span></div>
+      <p>A maior parte das escolas já usa Google. Convém explicar que isso já é cloud e o que cada serviço faz.</p>
+      <ul>
+        <li><strong>Google Drive:</strong> guardar e partilhar ficheiros na nuvem.</li>
+        <li><strong>Google Classroom:</strong> gerir turmas e trabalhos.</li>
+        <li><strong>Google Docs/Sheets/Slides:</strong> trabalhar em conjunto no mesmo documento.</li>
+        <li><strong>Google Sites:</strong> criar páginas dentro da plataforma. Não aceita HTML externo.</li>
+      </ul>
+      <div class="resources">
+        <div class="resources-title">Recursos para aprofundar</div>
+        <a href="https://workspace.google.com/intl/pt-pt/education/">Google Workspace for Education</a>
+        <a href="https://support.google.com/sites/answer/6372880?hl=pt">Ajuda oficial – Google Sites</a>
+        <a href="https://www.youtube.com/watch?v=G7z2yQsxYB8">YouTube – Introdução ao Google Sites</a>
+      </div>
+
+      <details class="tech">
+        <summary>Ver explicação técnica: HTML, iframe e Google Sites</summary>
+        <p><strong>1. HTML</strong><br>HTML é a linguagem que define a estrutura de uma página web. Um ficheiro <code>.html</code> contém o texto e marcações que o navegador interpreta para mostrar a página.</p>
+        <p><strong>2. iframe</strong><br>Um <code>&lt;iframe&gt;</code> é uma janela dentro de uma página que mostra outra página. No Google Sites, quando usas “Incorporar → URL”, ele usa um <code>iframe</code> por baixo.</p>
+        <p><strong>3. Porque o Google Sites não mostra HTML do Google Drive</strong><br>O Drive serve ficheiros para download ou visualização, não como site. E o Sites bloqueia incorporar páginas com restrições de segurança. Resultado: o HTML do Drive não aparece renderizado.</p>
+        <p><strong>4. Fluxo correto</strong><br>Publicar o HTML num serviço que sirva páginas (GitHub Pages, Netlify, Vercel), obter o link público e incorporar esse link no Google Sites. Assim a tua página abre corretamente.</p>
+        <p><strong>5. Motivo</strong><br>O Google Sites é seguro por design. Bloquear HTML externo evita que alguém injete código malicioso.</p>
+      </details>
+    </article>
+
+    <article class="step" id="sec-escola">
+      <h2>6. Exemplos na Escola</h2>
+      <div class="audience"><span>Professores</span><span>Alunos</span><span>Encarregados de educação</span></div>
+      <p>Algumas formas simples de usar cloud no agrupamento.</p>
+      <ul>
+        <li>Publicar trabalhos de alunos em Google Sites (feito dentro do Sites).</li>
+        <li>Se o trabalho for um site HTML feito pelos alunos, publicar primeiro em GitHub Pages ou Netlify e só depois ligar no Google Sites.</li>
+        <li>Partilha de materiais de departamento no Drive.</li>
+        <li>Mostra de projetos digitais a encarregados de educação.</li>
+      </ul>
+      <div class="resources">
+        <div class="resources-title">Recursos para aprofundar</div>
+        <a href="https://www.youtube.com/watch?v=rX4_sPZpF1Y">YouTube – Como criar um site no Google Sites (passo a passo)</a>
+        <a href="https://www.youtube.com/watch?v=1eMy4bZ3KfM">YouTube – Publicar site com GitHub Pages</a>
+        <a href="https://www.youtube.com/watch?v=q3vsAtijvgA">YouTube – Pôr site no ar gratuitamente</a>
+      </div>
+    </article>
+  </div>
+
+  <footer>
+    Página pedagógica de apoio à comunidade escolar · Última atualização: novembro 2025 · Contacto: tic@aejoaodarosa.pt
+  </footer>
+</body>
+</html>
