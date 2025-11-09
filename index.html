@@ -26,7 +26,7 @@
     .pad{padding:18px}
     .pill{display:inline-block;padding:4px 10px;border-radius:999px;
       border:1px solid rgba(255,255,255,.12);color:var(--muted);font-size:12px}
-    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;align-items:center}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;
       border-radius:12px;border:1px solid rgba(255,255,255,.12);
       text-decoration:none;color:var(--text)}
@@ -45,6 +45,26 @@
       color:var(--text);text-decoration:none}
     .game-link:hover{background:rgba(255,255,255,.06)}
     .locked{opacity:.6}
+
+    /* Botão a piscar */
+    .blink-btn {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      text-decoration:none;
+      font-weight:700;
+      background:var(--accent);
+      color:var(--bg);
+      animation:blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 50%, 100% {opacity:1;}
+      25%, 75% {opacity:0.3;}
+    }
+    .blink-btn:hover{background:var(--accent2);}
   </style>
 </head>
 <body>
@@ -62,6 +82,7 @@
         <a class="btn" href="#arquivo">Arquivo</a>
         <a class="btn" href="#recursos">Recursos úteis</a>
         <a class="btn" href="#jogos">Jogos</a>
+        <a href="curso.html" target="_blank" class="blink-btn">💻 Curso de Cibersegurança!!!</a>
       </div>
     </header>
 
@@ -151,31 +172,6 @@
     <footer>
       © AE João da Rosa — Comunidade Escolar · Última atualização: <span id="lastUpdate"></span>
     </footer>
-
-    <!-- BOTÃO PISCANTE - Curso de Cibersegurança -->
-    <style>
-      .blink-btn {
-        display:inline-block;
-        margin-top:20px;
-        padding:12px 20px;
-        background:var(--accent);
-        color:var(--bg);
-        border-radius:12px;
-        text-decoration:none;
-        font-weight:700;
-        animation:blink 1s infinite;
-        text-align:center;
-      }
-      @keyframes blink {
-        0%, 50%, 100% {opacity:1;}
-        25%, 75% {opacity:0.3;}
-      }
-    </style>
-
-    <div style="text-align:center; margin-top:40px;">
-      <a href="curso.html" target="_blank" class="blink-btn">💻 Curso de Cibersegurança!!!</a>
-    </div>
-
   </div>
 
   <script>
